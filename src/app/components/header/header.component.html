@@ -1,0 +1,30 @@
+<div>
+
+  <a routerLink = "/" class = "button"
+     routerLinkActive = "success"
+     [routerLinkActiveOptions] = "{exact: true}"> <!-- required because from url if we say / it is matched with /, /products /about  -->
+    HOME
+    </a>
+
+    <a routerLink = "/products" class = "button"
+    routerLinkActive = "success">
+   PRODUCT
+   </a>
+
+    <a routerLink = "/about" class = "button"
+    routerLinkActive = "success">
+   ABOUT
+   </a>
+
+   <a routerLink = "/contact" class = "button"
+   routerLinkActive = "success">
+  CONTACT
+  </a>
+
+  <a routerLink = "/login" class = "button"
+  routerLinkActive = "success">
+ LOGIN
+ </a>
+
+
+</div>

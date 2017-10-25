@@ -1,0 +1,60 @@
+<h2>Product Edit - {{product.name}}</h2>
+
+<form #productForm = "ngForm"
+      (ngSubmit) = "saveProduct()">
+
+    <p *ngIf = "productForm.dirty">
+        Form is Changed
+      </p>
+      <p *ngIf = "productForm.dirty && productForm.invalid">
+          Form is invalid
+        </p>
+
+  Name: <input name ="name"
+        [(ngModel)] = "product.name"
+        required 
+        minlength="2"
+        
+        #productName = "ngModel"/>
+  <p  *ngIf = "productName.dirty && productName.invalid">
+    Name is invalid.
+  </p>
+
+  <p  *ngIf = "productName.dirty">
+      Name is changed.
+  </p>
+
+  <pre>
+    Errors => {{productName.errors | json}}
+  </pre>
+
+      <p *ngIf = "productName.dirty && productName.errors?.required">
+          you should need a product name
+        </p>
+        <p *ngIf = "productName.dirty && productName.errors?.minlength">
+            you should have mininum {{error.requiredlength}}
+          </p>
+
+
+
+  Year:  <input name ="year"
+      [(ngModel)] = "product.year"
+      pattern="[0-9]{4}"/>
+  
+  Brand: <select name ="brandId"
+        [(ngModel)] = "product.brandId">
+        <option *ngFor = "let brand of brands"
+                [value] = "brand.id"> 
+          {{brand.name}}</option>
+  </select>
+
+  Released: <input name ="released"
+         [ngModel] = "product.released | date: 'dd/MM/yyyy'"
+         (ngModelChanged) = "product.released = $event" 
+         />
+
+  <button type="submit" [disabled] = "productForm.invalid || productForm.pristine">
+    SAVE
+  </button>
+      
+</form>

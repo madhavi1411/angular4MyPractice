@@ -1,0 +1,29 @@
+<h2> Home Page </h2>
+
+<h4>
+  {{likes}}
+</h4>
+
+<button (click) = "increment()">
+  +1
+</button>
+
+<app-likes>
+  <span> HOME LIKE</span>
+</app-likes>
+
+<p> title: {{title | uppercase}}</p>
+
+<p> Date: {{releaseDate | date:'fullDate' | uppercase}}</p>
+
+<p> Price: {{price | currency}}</p>
+<p> Price: {{price | currency:"INR":true}}</p>
+
+<p> jsonformat: {{ {name: 'phone1'} | json }} </p>
+
+<p> Power 2 pow 1: {{2 | power}}</p>
+<p> Power 2 pow 3: {{2 | power:3}}</p>
+
+<div [innerHtml] = "html">
+
+</div>

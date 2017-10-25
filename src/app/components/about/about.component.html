@@ -1,0 +1,29 @@
+<h2> About US</h2>
+
+<!-- <input type="text" [(ngModel)] = "memberName" /> expanded way is as below --> 
+<input type="text" [ngModel] = "memberName" 
+                    (ngModelChange) = "memberName=$event" />
+
+
+you are typing ... {{memberName}}
+<button (click) = "add()">Add</button>
+<button (click) = "empty()">Empty</button>
+<button (click) = "show=!show">
+    Show/Hide
+  </button>
+<div *ngIf = "show else elsePart">
+<h4>Members</h4>
+
+<ng-template *ngIf = 'members.length == 0; else showlist'>
+  No Members
+</ng-template>
+<ul>
+  <li *ngFor = 'let name of members let i = index' #showlist>
+   {{i}} - {{name}}
+  </li>
+</ul>
+</div>
+<ng-template #elsePart>
+ Members Hidden
+</ng-template>
+<hr>

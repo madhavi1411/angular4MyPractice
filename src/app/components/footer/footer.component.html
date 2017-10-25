@@ -1,0 +1,12 @@
+<hr>
+<!-- conditional for ngclass : ngClass takes key value pair
+1. () for the events-->
+<div [ngClass] = "{highlight: isMouseOn}" (mouseenter) = "isMouseOn = true" (mouseleave) = "isMouseOn = false"> 
+  <p [style.color]="'red'"> Valtech Copyright @{{year}} {{appName}}</p>
+
+  <button [disabled]= "!isMouseOn" (click) = "onContact()">
+    Contact
+  </button>
+  <p> {{address?.city}} </p> <!--  ?  - Elvis Operator: does a null and undefined check -->
+
+</div>

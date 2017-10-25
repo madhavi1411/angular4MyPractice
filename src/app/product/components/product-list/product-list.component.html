@@ -1,0 +1,31 @@
+<div>
+  <h2>Product List </h2>
+  <p *ngIf = "message" >{{message}}</p>
+  <table>
+    <tr> 
+      <th>ID</th>
+      <th>Product Name</th>
+      <th>Brand Id</th>
+      <th>Product Year</th>
+      <th>Product Release Date</th>
+      <th>Product Price</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor = "let product of products" >
+        <td>{{product.id}}</td>
+      <td>
+        <a [routerLink] = "['/products', 'edit', product.id]">  
+          {{product.name }}
+        </a> 
+      </td>
+      <td>{{product.brandId}}</td>
+      <td>{{product.year}}</td>
+      <td>{{product.released | date: 'fullDate'}}</td>
+      <td>{{product.price | currency:"USD": true}}</td>
+      <td>
+        <button>Delete</button>
+      </td>
+
+    </tr>
+  </table>
+</div>

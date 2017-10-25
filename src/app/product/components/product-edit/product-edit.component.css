@@ -1,0 +1,11 @@
+input.ng-dirty {
+    background: yellow;
+}
+
+input.ng-invalid {
+    border: 2px solid red ;
+}
+
+input > p {
+    color:  red;
+}

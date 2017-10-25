@@ -1,0 +1,25 @@
+<h2>Contact us</h2>
+
+<!-- <app-likes [count] = "contactLikes"
+           (countChange) = "contactLikes = $event" >
+
+</app-likes> -->
+
+<app-likes [(count)] = "contactLikes" #likesComp>
+<!-- content part not shown at all-->
+<!-- To retain and show - this concept is transclude (transfer and include) -->
+<!-- add ng-content in the view part html i.e here likes.component.html -->
+  <h2>Contact Likes</h2>
+
+</app-likes>
+
+<!-- p1 is a reference to dom element -->
+<p #p1>
+ My Value
+</p>
+
+<button (click) = "p1.textContent='by # ref'">Set </button>
+
+<button (click) = "callChild()">
+  +10 Call child
+</button>
